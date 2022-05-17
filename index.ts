@@ -12,9 +12,6 @@ app.use(json());
 
 //Routes
 
-// app.get('/', (req, res) => {
-//     throw new Error('Daaamn');
-// })
 
 app.use(handleError);
 
