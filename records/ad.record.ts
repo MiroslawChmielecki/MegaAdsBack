@@ -12,10 +12,10 @@ export class AdRecord implements AdEntity {
     public description: string;
     public price: number;
     public url: string;
-    public lat: string;
-    public lon: string;
+    public lat: number;
+    public lon: number;
 
-    constructor(obj: AdEntity) {
+    constructor(obj: NewAdEntity) {
         if(!obj.name || obj.name.length > 100) {
             throw new ValidationError('Nazwa ogłoszenia nie może być pusta, ani przekraczać 100 znaków');
         }
@@ -35,5 +35,12 @@ export class AdRecord implements AdEntity {
         if(typeof obj.lat !== 'number' || typeof obj.lon !== 'number') {
             throw new ValidationError('Nie można zlokalizować ogłoszenia')
         }
+
+        this.name = obj.name;
+        this.description = obj.description;
+        this.price = obj.price;
+        this.url = obj.url;
+        this.lat = obj.lat;
+        this.lon = obj.lon;
     }
 }
